@@ -11,7 +11,7 @@
 
 ## Overview
 
-Created A User Login / Regestration API for user Authentication.
+Created A User Login / Registration API for user Authentication.
 
 
 ## Installation
@@ -33,10 +33,12 @@ To run this project locally, follow these steps:
     ```bash
    npm run dev
 
-4.  Open your browser and visit http://localhost:3000 to view the app.
+4.  Open your browser and visit http://localhost:5000 to view the app.
 
 
 ## Features
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
+- User Registration for creating a user.
+- User Login If User Already has an account.
+- 
+- 
