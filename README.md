@@ -21,7 +21,7 @@ To run this project locally, follow these steps:
 1. Clone the repository:
 
    ```bash
-    https://github.com/dharmik-kaklotar/Next.js-API-Routes.git
+    https://github.com/dharmik-kaklotar/User-authentication-api.git
 
 2. Install dependencies:
 
@@ -40,5 +40,5 @@ To run this project locally, follow these steps:
 
 - User Registration for creating a user.
 - User Login If User Already has an account.
-- 
-- 
+- Use of JWT for user authorization.
+- Encrypt the user Password for security.
