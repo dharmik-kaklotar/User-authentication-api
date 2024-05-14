@@ -11,12 +11,21 @@ const { CreateToken } = require("../config/createToken");
 const registerUser = asynchandler(async(req, res) => {
     try {
         const { name, email, number, password } = req.body;
-        const salt = bcrypt.genSaltSync(10);
-        const hashedPassword = bcrypt.hashSync(password, salt);
 
-        const userData = await new User({ name: name, email: email, number: number, password: hashedPassword }).save();
+        const isUserExist = await User.findOne({ email });
 
-        res.status(201).json({ message: "User Created Successfully", data: { _id: userData._id, name: userData.name, email: userData.email, number: userData.number, token: CreateToken(userData._id) }, success: true })
+        if (isUserExist) {
+            res.status(400).json({ message: `User Email Already Exist`, success: false })
+        } else {
+
+            const salt = bcrypt.genSaltSync(10);
+            const hashedPassword = bcrypt.hashSync(password, salt);
+
+            const userData = await new User({ name: name, email: email, number: number, password: hashedPassword }).save();
+
+            res.status(201).json({ message: "User Created Successfully", data: { _id: userData._id, name: userData.name, email: userData.email, number: userData.number, token: CreateToken(userData._id) }, success: true })
+
+        }
 
     } catch (error) {
         res.status(400).json({ message: `An Error Occured ,Something Went Wrong! ${error}`, success: false })
